@@ -1,0 +1,106 @@
+body {
+	font-family : verdana;
+	line-height : 1.4em;
+	font-size:10px;
+	color : #333;			
+}
+
+
+.articleLink , .blogLink {
+	background:white;
+	color : #333;			
+}
+
+#container {
+	background : url('../images/gradient.png') repeat-x;
+	background-color : #eee;
+	padding : 10px;
+	-moz-border-radius-topleft  : 15px;
+	-moz-border-radius-topright : 15px;
+	margin-top : 5px;
+}
+
+#logoContainer {
+	float:left;
+	width :80px;
+	height:80px;
+}
+
+.masthead {
+	margin:0;
+	margin-top:5px;
+	color : #fff;
+}
+
+.subhead {
+	color : #999;
+	font-size : 14px;
+	font-style:italic;
+}
+
+.articleLink {
+	text-decoration : none;	
+	font-weight:900;
+}
+
+.articleLink:hover {
+	text-decoration : underline;	
+}
+
+.articlelist {
+	margin-top:15px;
+	background : white;
+	border : 1px solid #bbb;
+	padding : 12px;
+}
+
+.articlelist H2 {
+	margin-bottom:3px;
+	padding:5px;
+	font-weight:900;
+	color : white;
+	background : #333;
+	font-size : 14px;
+}
+
+.snippet {
+	border-bottom : 1px solid #ddd;
+	margin-bottom : 3px;
+}
+
+.contentImage {
+	float : left;
+	padding-right : 5px;
+}
+
+.blogLink {
+	text-decoration : none;
+}
+
+.blogLink:hover {
+	text-decoration : underline;
+}
+
+.thumb {
+	margin : 0 5px 0 0;
+	vertical-align : top;
+	float : left;
+}
+
+.thumbContainer {
+	width : 84px;
+}
+
+.thumbContent {
+	vertical-align : top;		
+	border-bottom : 1px solid #ddd;
+}
+
+.contentTable .snippet {
+	border-bottom : none;
+}
+
+.doubleWide {
+	width : 48% ;
+	float : right;
+}

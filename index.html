@@ -1,0 +1,328 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<link href='http://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>1to1Mix</title>
+<!--Style Sheets -->
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<!--[if lte IE 7]>
+	<link href="css/ie7.css" rel="stylesheet" type="text/css" />
+<![endif]-->
+<!--[if IE 6]>
+	<link href="css/ie6.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="js/unitpngfix.js"></script>
+<![endif]-->
+<!-- jQuery -->
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+
+<style>
+body,h1,h3 { font-family:  'Droid Sans', arial, serif; }
+</style>
+
+	<!-- 
+	The CSS. You can of course have this in an external .css file if you like.
+	Please note that not all these styles may be necessary for your use of Coda-Slider, so feel free to take out what you don't need.
+	-->
+	<style type="text/css">
+		
+		* { margin: 0; padding: 0 }
+		/* I've used a hard CSS reset above, but you should consider a more sophisticated reset, such as this one: http://meyerweb.com/eric/thoughts/2007/05/01/reset-reloaded/ */
+		
+		p { text-align: left;  }
+		
+		p, ul { font-size: 15px; line-height: 1.4em } 
+		
+		p a, li a { color: #39c; text-decoration: none }
+		
+		p.intro { border-bottom: 1px solid #ccc; margin-bottom: 20px; padding: 20px 0 30px 0; text-align: center; width: 100% }
+		
+		p#cross-links { text-align: center }
+		
+		p#cross-links { border-bottom: 1px solid #ccc; margin-bottom: 30px; padding-bottom: 30px }
+		
+		a:focus { outline:none }
+		
+		img { border: 0 }
+		
+		h3 { border-bottom: 1px solid silver; margin-bottom: 5px; padding-bottom: 3px; text-align: left }
+			
+		.stripViewer .panelContainer .panel ul {
+			text-align: left;
+			margin: 0 15px 0 30px;
+		}
+		
+		.slider-wrap { /* This div isn't entirely necessary but good for getting the side arrows vertically centered */
+			margin: -77px -46px;
+			position: relative;
+			width: 100%;			
+		}
+
+		/* These 2 lines specify style applied while slider is loading */
+		.csw {width: 100%; height: 460px; background: #fff; overflow: scroll}
+		.csw .loading {margin: 200px 0 300px 0; text-align: center}
+
+		.stripViewer { /* This is the viewing window */
+			position: relative;
+			overflow: hidden; 
+			border: 5px solid #020; /* this is the border. should have the same value for the links */
+			
+			-border-radius: 10px;
+			-moz-border-radius: 10px;
+			-webkit-border-radius: 10px;
+
+	  		box-shadow: 0px 0px 10px rgba(0, 190, 0, 0.5) ;
+	  		-moz-box-shadow: 0px 0px 10px rgba(0, 190, 0, 0.5) ;
+  	  		-webkit-box-shadow: 0px 0px 10px rgba(0, 190, 0, 0.5) ;
+	
+			margin: auto;
+			width: 945px; /* Also specified in  .stripViewer .panelContainer .panel  below */
+			height: 418px;
+			clear: both;
+			background: none;
+			color:gray;
+		}
+		
+		.stripViewer .panelContainer { /* This is the big long container used to house your end-to-end divs. Width is calculated and specified by the JS  */
+			position: relative;
+			left: 0; top: 0;
+			width: 100%;
+			list-style-type: none;
+			/* -moz-user-select: none; // This breaks CSS validation but stops accidental (and intentional - beware) panel highlighting in Firefox. Some people might find this useful, crazy fools. */
+		}
+		
+		.stripViewer .panelContainer .panel { /* Each panel is arranged end-to-end */
+			float:left;
+			height: 100%;
+			position: relative;
+			width: 930px; /* Also specified in  .stripViewer  above */
+		}
+		
+		.stripViewer .panelContainer .panel .wrapper { /* Wrapper to give some padding in the panels, without messing with existing panel width */
+			padding: 50px;
+		}
+		
+		.stripNav { /* This is the div to hold your nav (the UL generated at run time) */
+			margin: auto;
+		}
+		
+		.stripNav ul { /* The auto-generated set of links */
+			list-style: none;
+		}
+		
+		.stripNav ul li {
+			float: left;
+			margin-right: -8px; /* If you change this, be sure to adjust the initial value of navWidth in coda-slider.1.1.1.js */
+			padding-left : 10px;
+		}
+		
+		.stripNav a { /* The nav links */
+			font-size: 15px;
+			font-weight: bold;
+			text-align: center;
+			line-height: 32px;
+			background: none;
+			color: green;
+			text-decoration: none;
+			display: block;
+			padding: 0 25px;
+			
+			-border-radius: 20px 20px 0px 0px ;
+			-moz-border-radius: 20px 20px 0px 0px ;
+			-webkit-border-radius: 20px 20px 0px 0px ;
+
+
+		}
+		
+		.stripNav li.tab1 a { background: none; }
+		.stripNav li.tab2 a { background: none; }
+		.stripNav li.tab3 a { background: none; }
+		.stripNav li.tab4 a { background: none; }
+		.stripNav li.tab5 a { background: none; }
+		
+		.stripNav li a.current {
+			background: none;
+			color: #fff;
+		}
+		
+		.stripNav li a:hover {
+			background: none;
+			color:#0f0;
+			
+			text-shadow: 1px 6px 10px rgba(0, 190, 0, 0.5) ;
+			
+		}
+		
+		.stripNavL, .stripNavR { /* The left and right arrows */
+			position: absolute;
+			top: 230px;
+			text-indent: -9000em;
+		}
+		
+		.stripNavL a, .stripNavR a {
+			display: block;
+			height: 40px;
+			width: 40px;
+		}
+		
+		.stripNavL {
+			left: 0;
+		}
+		
+		.stripNavR {
+			right: 0;
+		}
+		
+		.category,
+		.title
+		 {
+			font-weight : 900;
+			display:block;
+			margin : 15px 0 0 0;
+			color:#0b0;
+		}
+		.title {
+			margin : 0 ;
+		}
+		
+		#contact {
+			color:gray;
+		}
+		
+		.downlinks a {
+			color : #39c;
+			font-size : small;
+			margin-right : 15px;
+		}
+
+		.home p {
+			margin : 15px 0;
+		}
+		
+		.tab1 {
+			background : url(images/green/home.png) no-repeat;
+		}
+
+		.tab2 {
+			background : url(images/green/briefcase.png) no-repeat;
+		}
+
+		.tab3 {
+			background : url(images/green/lab.png) no-repeat;
+		}
+
+		.icon {
+			float:left;
+			padding:10px;
+		}
+	</style>
+	
+	<script src="jquery-1.2.1.pack.js" type="text/javascript"></script>
+	<script src="jquery-easing.1.2.pack.js" type="text/javascript"></script>
+	<script src="jquery-easing-compatibility.1.2.pack.js" type="text/javascript"></script>
+	<script src="coda-slider.1.1.1.pack.js" type="text/javascript"></script>
+	
+</head>
+<body>
+<div id="container">
+    	<div id ="logo"><img src="images/1to1Mix3.png" alt="1to1Mix"/></div>
+  <div id="header">
+    
+  </div>
+  <div id="content">
+<div class="slider-wrap">
+	<div id="slider1" class="csw">
+		<div class="panelContainer">
+
+			<div class="panel" title="Home">
+				<div class="wrapper home">
+
+				<span class='title'>1to1Mix is a self-funded startup with seasoned Silicon Valley veterans at the helm.</span>
+				
+				<p>We are currently developing our next-generation personalization service.</p>
+				
+				<p>We also provide analytics and datamining consulting services in the San Francisco Bay Area to help small and large companies optimize inbound 
+				and outbound interactions with their customers. Our experienced consultants deliver the insight you need to develop your data-driven 
+				strategy while providing guidance at every step along the way.</p>
+
+				</div>
+			</div>
+
+			<div class="panel" title="Consulting">
+				<div class="wrapper">
+				
+				<span class='title'>Our Missions:</span>
+				
+				<p><img  class='icon' src='images/green/database.png'/>
+					<span class='category'>Data Preparation</span>analysis and quality assessment, enrichment & modeling</p>
+
+				<p><img  class='icon' src='images/green/happy-face.png'/>
+				<span class='category'>Customer Studies</span>base profiling, segmentation, valuation:(lifetime value & share of wallet), demand forecasting</p>
+
+				<p><img  class='icon' src='images/green/satellite.png'/>
+				<span class='category'>Direct Marketing</span>campaign tracking, ROI measurement, acquisition, cross-sell, upsell, product recommendations, 
+				attrition, retention & winback, cross-channel optimisation, test marketing</p>
+
+				<p><img  class='icon' src='images/green/screen.png'/>
+				<span class='category'>Advertising</span>campaigns scoring, content categorization, sentiment mining</p>
+
+				<p><img  class='icon' src='images/green/pie-chart.png'/>
+				<span class='category'>Datamining</span>real-time datamining (with integration into business processes/decision support systems)</p>
+
+				</div>
+			</div>		
+
+			<div class="panel" title="Labs">
+				<div class="wrapper">
+
+					<p><span class='category'>Libraries and tools we have developed for internal use.</span></p>
+				
+					<p>
+						<img  class='icon' src='images/green/calendar.png'/>
+						<span class='category'>Intdate:(ocaml)</span>Fast and lean library to handle dates expressed in the YYYYMMDD integer format.</p>
+						<div class='downlinks'>						
+							<a href="download intdate v 1.0">download intdate v 1.0</a>
+						</div>	
+					
+					<p>
+						<img class='icon' src='images/green/database.png'/>
+						<span class='category'>Sqlight:(ocaml)</span>Minimalist API for straightforward use of SQLite</p> 
+						<div class='downlinks'>	
+							<a href="download Sqlight v 1.0">download Sqlight v 1.0</a>
+						</div>
+					
+					<p>
+						<img  class='icon' src='images/green/bar-chart.png'/>
+						<span class='category'>Rank:(ocaml)</span>Online ranking (equidistributed bucketing) of streams of numbers</p>
+						<div class='downlinks'>	
+							<a href="download Rank v 0.7">download Rank v 0.7</a>
+					    </div>
+				</div>
+			</div>
+					
+		</div><!-- .panelContainer -->
+	</div><!-- #slider1 -->
+</div><!-- .slider-wrap -->
+  </div>
+  <div id="footer" class="clear">
+  	<div id='contact'>
+  		<p>
+			<img  class='icon' src='images/green/email.png'/>
+			<span class='category'><a href='mailto:mfontain@gmail.com?subject=121Mix.'>info@1to1mix.com</a></span>
+			contact us
+  	</div>
+
+  </div>
+</div>
+
+	<!-- Initialize each slider on the page. Each slider must have a unique id -->
+	<script type="text/javascript">
+		jQuery(window).bind("load", function() {
+			jQuery("div#slider1").codaSlider()
+			// jQuery("div#slider2").codaSlider()
+			// etc, etc. Beware of cross-linking difficulties if using multiple sliders on one page.
+			
+		});
+	</script>
+</body>
+</html>

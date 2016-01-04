@@ -1,0 +1,56 @@
+body {
+	background: url(/images/stripe.png);
+	border-top: 5px solid #000;
+	color: #666;
+	padding: 20px 0 40px;
+	font-family : 'Lucida Grande', sans-serif;
+	font-size : 1.4em;
+	font-weight : 900;
+	line-height : 1.3em;
+}
+
+.content IMG {
+	float : left;
+	vertical-align : top;
+	padding : 10px;
+}
+
+#tweetBox {
+	-moz-border-radius:15px;
+	-moz-border-radius:15px;
+	padding: 25px;
+	background : white;
+}
+
+#contact {
+	-moz-border-radius:15px;
+	-moz-border-radius:15px;
+	padding: 10px 25px;
+	background : #3a93bc;
+	color : #FEFF49;
+	border : 2px solid #21536a;
+}
+
+#intro {
+	padding: 10px;
+	background : #FFFD7C;
+	border : 1px solid #FEFF49;
+	margin-top : 20px;
+}
+
+#welcome {
+	margin-bottom : 15px;
+	padding:10px;
+}
+
+#showmethemoney {
+	float : left;
+	padding : 10px;
+	margin : 0 25px 0 0px;
+	border : 1px solid #ddd;
+}
+
+#trig {
+	margin-top : 0px;
+	margin-left : 100px;
+}
