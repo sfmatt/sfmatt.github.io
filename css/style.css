@@ -14,8 +14,8 @@ body {
 /*   background: #000 url("../images/ducks.jpg");*/
 /*   background: #000 url("../images/dotted_bg.jpg");*/
    background-position: top;
-   background-repeat: repeat-x; 
-   
+   background-repeat: repeat-x;
+
 }
 
 /** Floats
@@ -69,7 +69,7 @@ hr {
 	background: url(../images/divider.png);
 }
 
-/** Container 
+/** Container
 _____________________________________________________________________________*/
 #container {
 	width: 960px;
@@ -93,7 +93,7 @@ _____________________________________________________________________________*/
 	display: block;
 	height: 335px;
 	padding: 50px;
-	background: url("../images/content_bg.png");
+	-background: url("../images/content_bg.png");
 	background-repeat: no-repeat;
 }
 
@@ -102,7 +102,7 @@ _____________________________________________________________________________*/
 #main {
 	width: 555px;
 	overflow: hidden;
-}  
+}
 #main p {
 	margin: 0 0 48px 0;
 	font-family: Arial, Helvetica, sans-serif;
@@ -164,31 +164,31 @@ _____________________________________________________________________________*/
 }
 .ten {
 	background: url("../images/chart-10.png");
-}  
+}
 .twenty {
 	background: url("../images/chart-20.png");
-}  
+}
 .thirty {
 	background: url("../images/chart-30.png");
-}  
+}
 .forty {
 	background: url("../images/chart-40.png");
-}  
+}
 .fifty {
 	background: url("../images/chart-50.png");
-}  
+}
 .sixty {
 	background: url("../images/chart-60.png");
-}  
+}
 .seventy {
 	background: url("../images/chart-70.png");
-}  
+}
 .eighty {
 	background: url("../images/chart-80.png");
-}  
+}
 .ninety {
 	background: url("../images/chart-90.png");
-}  
+}
 
 /** Footer
 _____________________________________________________________________________*/
